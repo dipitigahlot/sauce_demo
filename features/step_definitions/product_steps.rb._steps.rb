@@ -1,7 +1,14 @@
 # @example
 #  I should see page displayed without error
 And("I should see page displayed without error") do
-  success = @current_page.correct_image_displayed?
+  res_code = @current_page.correct_image_displayed?
+  success = true
+  res_code.each do |arr|
+    if arr != 200
+      success = false
+      break
+    end
+  end
   assert(success, "Possible Defect: page was not loaded correctly")
 end
 
@@ -85,5 +92,5 @@ And /^I should see the '(.*)' amount is between '(\d+)' and '(\d+)'$/ do |field,
   el = @current_page.send poe # PageObject::Element
   actual_count = el.text.split('$').last.to_i
 
-  assert((min .. max) === actual_count, "Possible Defect: cart amount is not in the range")
+  assert((min..max) === actual_count, "Possible Defect: cart amount is not in the range")
 end

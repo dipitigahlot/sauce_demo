@@ -10,7 +10,17 @@ module Pages
     end
 
     def correct_image_displayed?
-      (self.image.attribute('src').include? 'sl-404') ? false : true
+      img_count=self.links(id: /^item_(\d+)_img_link$/).count
+      idx=0
+      criteria = []
+      while idx< img_count do
+        src = link(id: /^item_#{idx}_img_link$/).child.attribute('src')
+        uri                  = URI(src)
+        res                  = Net::HTTP.get_response(uri)
+        idx +=1
+        criteria << res.code.to_i
+      end
+      criteria
     end
   end
 end
