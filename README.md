@@ -1,18 +1,22 @@
-
+Installation:
 1.	Install Ruby && Devkit
-a.	http://rubyinstaller.org/downloads
-b.	IF added Ruby without devkit then you need to download devkit separately Development Kit²⁹ https://rubyinstaller.org/add-ond/devkit/
-c.	Run these commands
-i.	ruby dk.rb init 
-ii.	ruby dk.rb install
+	a.	http://rubyinstaller.org/downloads (Ruby+Devkit 3.2.2-1 (x64))
+	b.	select option 3 (i.e. MYS2 & MINGW Developmenttoolchain) for devkit installation when prompted.
 2.	Install Firefox/chrome/edge
-3.	Go to any drive (I used c:)
-4.	Go to Git bash and use command below
-a.	Gem install testgen
-b.	Gem install bundler
-c.	testgen project sauce_demo
-5.	open project <sauce_demo> in editor (I used RubyMine)
+3.  Copy from lib folder or install - Gekodriver.exe/chromedriver.exe/msedgedriver.exe and place in c:/users/<user>/.webdriver 
+	- If any issue is faced, add Environemnt variable "path" for webdriver location
+5   Go to any drive and download repo from github https://github.com/dipitigahlot/sauce_demo
+6.	open cmd/gitbash and go to repo for sauce_demo_master and run below command
+	a.	bundle install
+7.	open project <sauce_demo_master> in editor (Preferably RubyMine)
 
 Execution command:
-bundle exec cucumber -t '@buy_product' user_name=standard_user password=secret_sauce browser=edge
 
+Firefox:
+bundle exec cucumber -t '@buy_product' user_name=standard_user password=secret_sauce
+
+chrome:
+bundle exec cucumber -t '@buy_product' user_name=standard_user password=secret_sauce browser=chrome
+
+Execution + Report:
+bundle exec cucumber -t '@buy_product' user_name=standard_user password=secret_sauce browser=chrome --format html --out=report.html -f pretty --color

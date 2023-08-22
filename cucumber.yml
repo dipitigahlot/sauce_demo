@@ -1,1 +1,2 @@
 default: --no-source --color --format pretty
+dry-run: --dry-run --strict -f pretty --color -s --publish-quiet

@@ -1,0 +1,17 @@
+# Created by https://www.gitignore.io/api/rubymine
+# RubyMine project folder
+.idea/
+
+# Temp files
+.byebug_history
+
+# Ignore .gem files
+*.gem
+
+# Bundler plugins
+.bundle/
+
+# Ignore HTML files
+*.html
+
+# End of https://www.gitignore.io/api/rubymine

@@ -18,8 +18,6 @@ Before do |scenario|
     uri                                       = URI(url)
     Webdrivers::Chromedriver.required_version = Net::HTTP.get(uri)
   end
-
-  @browser = Watir::Browser.new $configs.browser_name
 end
 
 Before('@login') do
